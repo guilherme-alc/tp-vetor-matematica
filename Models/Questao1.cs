@@ -1,4 +1,4 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     public class Questao1
     {
@@ -28,7 +28,7 @@
                 }
                 else
                 {
-                    Console.WriteLine($"\n{entrada} não é um número válido");
+                    Console.WriteLine($"\n\"{entrada}\" não é um número válido");
                     return;
                 }
             }
@@ -36,13 +36,15 @@
             List<double> al2 = new List<double>();
             for (int j = 0; j < 3; j++)
             {
-                if(j == 0)
+                if (j == 0)
                 {
                     Console.Write("Digite o valor de X: ");
-                } else if(j == 1)
+                }
+                else if (j == 1)
                 {
                     Console.Write("Digite o valor de Y: ");
-                } else
+                }
+                else
                 {
                     Console.Write("Digite o valor de Z: ");
                 }

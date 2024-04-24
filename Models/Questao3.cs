@@ -1,4 +1,4 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     internal class Questao3
     {
@@ -47,7 +47,8 @@
                     z = double.Parse(Console.ReadLine());
                 }
                 CalculaVetor(x, y, z, dimensao);
-            } catch (FormatException)
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }
@@ -56,13 +57,13 @@
         {
             if (dimensao == "2d")
             {
-                Double soma = Math.Pow(x, 2) + Math.Pow(y, 2);
+                double soma = Math.Pow(x, 2) + Math.Pow(y, 2);
                 soma = Math.Sqrt(soma);
                 Console.WriteLine($"O módulo do vetor ({x},{y}) é = {soma:F3}");
             }
             else if (dimensao == "3d")
             {
-                Double soma = Math.Pow(2, x) + Math.Pow(2, y) + Math.Pow(2, z);
+                double soma = Math.Pow(2, x) + Math.Pow(2, y) + Math.Pow(2, z);
                 soma = Math.Sqrt(soma);
                 Console.WriteLine($"O módulo do vetor ({x},{y},{z}) é = {soma:F3}");
             }

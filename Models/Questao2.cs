@@ -1,4 +1,4 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     internal class Questao2
     {
@@ -20,7 +20,7 @@
             {
                 Console.WriteLine("\nOpção inválida. Digite 2d ou 3d");
             }
-            
+
         }
         public static void DefineVetor(string dimensao)
         {
@@ -65,11 +65,12 @@
                         Console.Write(+i + "   ");
                     }
                 }
-            } catch (FormatException)
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }
-            
+
         }
     }
 }

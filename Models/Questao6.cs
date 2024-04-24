@@ -1,4 +1,4 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     internal class Questao6
     {
@@ -28,7 +28,8 @@
                     VerificaCPF(vetor_cpf_criado, vetor_cpf_original);
 
                 }
-            } catch(FormatException)
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }

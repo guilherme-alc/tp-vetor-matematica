@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TrabalhoPratico.Models;
 namespace TrabalhoPratico
 {
     internal class Program

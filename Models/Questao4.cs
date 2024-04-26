@@ -1,36 +1,35 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
-    internal class Questao5
+    internal class Questao4
     {
         public static void Rodar()
         {
             Console.Clear();
-            Console.WriteLine("O vetor a ser calculado é 2d ou 3d?");
+            Console.WriteLine("Para determinar o vetor AB você deve subtrair os componentes do vetor B pelos componentes do vetor A");
+            Console.WriteLine("O vetor resultante é dado por:");
+            Console.WriteLine("\t\tAB = (Bx - Ax, By - Ay, Bz - Az)");
+            Console.WriteLine("\nO vetor a ser calculado é 2d ou 3d?");
             string dimensao = Console.ReadLine().ToLower();
-            int n = 0;
             if (dimensao == "2d")
             {
-                n = 2;
-                DefineVetor(dimensao, n);
+                DefineVetor(dimensao);
 
             }
             else if (dimensao == "3d")
             {
-                n = 3;
-                DefineVetor(dimensao, n);
+                DefineVetor(dimensao);
             }
             else
             {
                 Console.WriteLine("\nOpção inválida. Digite 2d ou 3d");
             }
         }
-        public static void DefineVetor(string dimensao, int n)
+
+        public static void DefineVetor(string dimensao)
         {
-            double xA = 0, yA = 0, zA = 0, xB = 0, yB = 0, zB = 0;
-            double[] vetorA = new double[n];
-            double[] vetorB = new double[n];
             try
             {
+                double xA = 0, yA = 0, zA = 0, xB = 0, yB = 0, zB = 0;
                 if (dimensao == "2d")
                 {
                     Console.WriteLine("\nDigite os valores do vetor A");
@@ -38,18 +37,12 @@
                     xA = double.Parse(Console.ReadLine());
                     Console.Write("Y: ");
                     yA = double.Parse(Console.ReadLine());
-
-                    vetorA[0] = xA;
-                    vetorA[1] = yA;
-
-                    Console.WriteLine("\nAgora os valores do vetor B");
+                    Console.WriteLine("\nAgora digite os valores do vetor B");
                     Console.Write("X: ");
                     xB = double.Parse(Console.ReadLine());
                     Console.Write("Y: ");
                     yB = double.Parse(Console.ReadLine());
 
-                    vetorB[0] = xB;
-                    vetorB[1] = yB;
                 }
                 else if (dimensao == "3d")
                 {
@@ -60,11 +53,6 @@
                     yA = double.Parse(Console.ReadLine());
                     Console.Write("Z: ");
                     zA = double.Parse(Console.ReadLine());
-
-                    vetorA[0] = xA;
-                    vetorA[1] = yA;
-                    vetorA[2] = zA;
-
                     Console.WriteLine("\nAgora digite os valores do vetor B");
                     Console.Write("X: ");
                     xB = double.Parse(Console.ReadLine());
@@ -72,29 +60,29 @@
                     yB = double.Parse(Console.ReadLine());
                     Console.Write("Z: ");
                     zB = double.Parse(Console.ReadLine());
-
-
-                    vetorB[0] = xB;
-                    vetorB[1] = yB;
-                    vetorB[2] = zB;
                 }
-                CalcularProdutoEscalar(vetorA, vetorB, n);
-            } catch(FormatException)
+                CalculaVetor(xA, yA, zA, xB, yB, zB, dimensao);
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }
         }
-
-        static void CalcularProdutoEscalar(double[] vetorA, double[] vetorB, int n)
+        public static void CalculaVetor(double xA, double yA, double zA, double xB, double yB, double zB, string dimensao)
         {
-            double produtoEscalar = 0;
-
-            // Calculando o produto escalar
-            for (int i = 0; i < vetorA.Length; i++)
+            if (dimensao == "2d")
             {
-                produtoEscalar += vetorA[i] * vetorB[i];
+                double xAB = xB - xA;
+                double yAB = yB - yA;
+                Console.WriteLine($"\nVetor AB = ({xAB},{yAB})");
             }
-            Console.WriteLine($"\nO produto escalar entre A e B é = {produtoEscalar}");
+            else if (dimensao == "3d")
+            {
+                double xAB = xB - xA;
+                double yAB = yB - yA;
+                double zAB = zB - zA;
+                Console.WriteLine($"\nVetor AB = ({xAB},{yAB},{zAB})");
+            }
         }
     }
 }

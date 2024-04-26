@@ -1,11 +1,12 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     internal class Questao3
     {
         public static void Rodar()
         {
             Console.Clear();
-            Console.WriteLine("O vetor a ser calculado é 2d ou 3d?");
+            Console.WriteLine("O módulo do vetor é a raiz quadrada da soma dos seus componentes cada um elevado ao quadrado");
+            Console.WriteLine("\nO vetor a ser calculado é 2d ou 3d?");
             string dimensao = Console.ReadLine().ToLower();
             if (dimensao == "2d")
             {
@@ -47,7 +48,8 @@
                     z = double.Parse(Console.ReadLine());
                 }
                 CalculaVetor(x, y, z, dimensao);
-            } catch (FormatException)
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }
@@ -56,13 +58,15 @@
         {
             if (dimensao == "2d")
             {
-                Double soma = Math.Pow(x, 2) + Math.Pow(y, 2);
+                Console.WriteLine("\nA formula é usada é |v| = Vx²+y²");
+                double soma = Math.Pow(x, 2) + Math.Pow(y, 2);
                 soma = Math.Sqrt(soma);
                 Console.WriteLine($"O módulo do vetor ({x},{y}) é = {soma:F3}");
             }
             else if (dimensao == "3d")
             {
-                Double soma = Math.Pow(2, x) + Math.Pow(2, y) + Math.Pow(2, z);
+                Console.WriteLine("\nA formula é usada é |v| = Vx²+y²+z²");
+                double soma = Math.Pow(2, x) + Math.Pow(2, y) + Math.Pow(2, z);
                 soma = Math.Sqrt(soma);
                 Console.WriteLine($"O módulo do vetor ({x},{y},{z}) é = {soma:F3}");
             }

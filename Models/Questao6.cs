@@ -1,4 +1,4 @@
-﻿namespace TrabalhoPratico
+﻿namespace TrabalhoPratico.Models
 {
     internal class Questao6
     {
@@ -9,13 +9,14 @@
             List<int> vetor_cpf_original = new List<int>();
             List<int> vetor_padrao = new List<int>() { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             List<int> vetor_cpf_criado = new List<int>();
-            Console.WriteLine("Digite 11 dígitos do CPF (Somente os números): ");
+            Console.WriteLine("O processo de verificação consiste em calcular os dígitos verificadores com base nos primeiros\n9 dígitos do CPF e compará-los com os dígitos verificadores fornecidos. Se os dígitos verificadores calculados\nforem iguais aos fornecidos, o CPF é considerado válido.");
+            Console.WriteLine("\nDigite 11 dígitos do CPF (Somente os números): ");
             try
             {
                 cpf_usuario = Console.ReadLine().Replace(".", "").Replace("-", "").Trim();
                 if (cpf_usuario.Length != 11)
                 {
-                    Console.WriteLine("CPF deve ter 11 dígitos");
+                    Console.WriteLine("\nCPF deve ter 11 dígitos");
                 }
                 else
                 {
@@ -28,7 +29,8 @@
                     VerificaCPF(vetor_cpf_criado, vetor_cpf_original);
 
                 }
-            } catch(FormatException)
+            }
+            catch (FormatException)
             {
                 Console.WriteLine("\nTipo de entrada inválida");
             }
@@ -51,8 +53,14 @@
         }
         public static void VerificaCPF(List<int> cpf_criado, List<int> cpf_origem)
         {
+            int count = 0;
+            for (int i = 0; i < cpf_criado.Count; i++)
+            {
+                if (cpf_origem[i] == cpf_origem[10])
+                    count++;
+            }
 
-            if (cpf_criado[10] == cpf_origem[10] && cpf_criado[9] == cpf_origem[9])
+            if (cpf_criado[10] == cpf_origem[10] && cpf_criado[9] == cpf_origem[9] && count != 11)
                 Console.WriteLine("\nCPF VÁLIDO");
             else
                 Console.WriteLine("\nCPF INVÁLIDO");
